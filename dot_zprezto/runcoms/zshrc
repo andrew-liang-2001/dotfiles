@@ -13,7 +13,9 @@ fi
 # Customize to your needs...
 
 alias vi="nvim"
-alias ls="exa"
-alias ll='exa -lbGF --git'
+alias ls="eza"
+alias ll='eza -lbGF --git'
 alias cat="bat"
 alias man="tldr"
+alias lg="lazygit"
+
