@@ -12,6 +12,18 @@ fi
 
 # Customize to your needs...
 
+__conda_setup="$('/Users/andrewliang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/andrewliang/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
 alias vi="nvim"
 alias ls="eza"
 alias ll='eza -lbGF --git'
