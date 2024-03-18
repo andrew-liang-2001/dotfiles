@@ -1,4 +1,6 @@
 ssl_verify: true
+channel-priority: strict
 channels:
   - defaults
+  - conda-forge
 changeps1: false
