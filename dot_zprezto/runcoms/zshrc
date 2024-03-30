@@ -12,6 +12,18 @@ fi
 
 # Customize to your needs...
 
+alias vi="nvim"
+alias ls="eza"
+alias ll='eza -lbGF --git'
+alias cat="bat"
+alias man="tldr"
+alias lg="lazygit"
+alias la="eza -a"
+alias lvim="NVIM_APPNAME=lazyvim nvim"
+
+# eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
 __conda_setup="$('/Users/andrewliang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -24,10 +36,4 @@ else
 fi
 unset __conda_setup
 
-alias vi="nvim"
-alias ls="eza"
-alias ll='eza -lbGF --git'
-alias cat="bat"
-alias man="tldr"
-alias lg="lazygit"
 
