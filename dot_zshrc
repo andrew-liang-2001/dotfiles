@@ -12,7 +12,6 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 setopt AUTO_CD
-alias nvchad="nvim"
 alias ls="eza"
 alias ll='eza -lbGF --git'
 alias cat="bat"
@@ -20,6 +19,7 @@ alias man="tldr"
 alias lg="lazygit"
 alias la="eza -a"
 alias vi="NVIM_APPNAME=lazyvim nvim"
+alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
