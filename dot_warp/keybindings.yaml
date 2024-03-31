@@ -1,5 +1,0 @@
----
-"workspace:toggle_command_palette": shift-cmd-A
-"editor_view:right": tab
-"input:open_completion_suggestions": none
-"editor_view:insert_autosuggestion": tab
