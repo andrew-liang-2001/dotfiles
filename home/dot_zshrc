@@ -13,6 +13,8 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
 fi
 
 setopt AUTO_CD
+setopt IGNOREEOF
+setopt HISTIGNOREDUPS
 alias ls="eza"
 alias ll='eza -lbGF --git'
 alias cat="bat"
@@ -22,26 +24,25 @@ alias la="eza -a"
 alias vi="NVIM_APPNAME=lazyvim nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 
-bindkey '^ ' autosuggest-accept
-
+# https://github.com/jeffreytse/zsh-vi-mode/issues/57
+function zvm_after_init() {
+  zvm_bindkey viins '^ ' autosuggest-accept
+}
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-# eval "$(starship init zsh)"
-alias ..="cd .."
-alias ~="cd ~"
 
-__conda_setup="$('/Users/andrewliang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/andrewliang/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# __conda_setup="$('/Users/andrewliang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/andrewliang/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 # source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
