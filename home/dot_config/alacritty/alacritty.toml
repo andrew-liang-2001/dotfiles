@@ -5,7 +5,8 @@ size = 16
 
 [window]
 opacity = 0.9
-decorations = "full"
+decorations = "none"
+blur = true
 
 [window.dimensions]
 columns = 90
@@ -15,8 +16,8 @@ lines = 24
 blink_interval = 500
   [cursor.style]
   shape = "Beam"
-  blinking = "Always"
-# Colors (Gruvbox dark)
+  blinking = "On"
+
 
 # Default colors
 [colors.primary]
