@@ -14,7 +14,14 @@ fi
 
 setopt AUTO_CD
 setopt IGNOREEOF
-setopt HISTIGNOREDUPS
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+setopt INTERACTIVE_COMMENTS
+
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
 alias ls="eza"
 alias ll='eza -lbGF --git'
 alias cat="bat"
@@ -23,11 +30,13 @@ alias lg="lazygit"
 alias la="eza -a"
 alias vi="NVIM_APPNAME=lazyvim nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
+alias cm="chezmoi"
 
 # https://github.com/jeffreytse/zsh-vi-mode/issues/57
 function zvm_after_init() {
   zvm_bindkey viins '^ ' autosuggest-accept
 }
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
