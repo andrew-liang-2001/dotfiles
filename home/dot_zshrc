@@ -18,9 +18,9 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt INTERACTIVE_COMMENTS
 
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
+# alias cp="cp -i"
+# alias mv="mv -i"
+# alias rm="rm -i"
 
 alias ls="eza"
 alias ll='eza -lbGF --git'
@@ -39,25 +39,46 @@ function zvm_after_init() {
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(thefuck --alias fu)"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# __conda_setup="$('/Users/andrewliang/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/andrewliang/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/andrewliang/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
 # zprof
+export PATH="/usr/local/sbin:$PATH"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/andrewliang/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/usr/local/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+#         . "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/usr/local/Caskroom/miniforge/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+#
+# if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/mamba.sh" ]; then
+#     . "/usr/local/Caskroom/miniforge/base/etc/profile.d/mamba.sh"
+# fi
+# <<< conda initialize <<<
+
