@@ -1,0 +1,69 @@
+{
+  "schemes" : [
+    {
+      "pointer" : {
+        "acceleration" : 1,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      },
+      "if" : {
+        "device" : {
+          "productName" : "MM710 Gaming Mouse",
+          "productID" : "0x12f",
+          "category" : "mouse",
+          "vendorID" : "0x2516"
+        }
+      }
+    },
+    {
+      "pointer" : {
+        "disableAcceleration" : false
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0x340",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x5ac",
+          "serialNumber" : "FM7944301HRHYYKA6+REZ",
+          "category" : "trackpad"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "speed" : {
+          "vertical" : 1
+        }
+      }
+    },
+    {
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 0
+        },
+        "speed" : {
+          "vertical" : 5
+        }
+      },
+      "if" : {
+        "device" : {
+          "productName" : "MX Master 3",
+          "serialNumber" : "4D35640E7B9107F2",
+          "productID" : "0xb023",
+          "category" : "mouse",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "speed" : 0.4,
+        "acceleration" : 0
+      }
+    }
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5"
+}
