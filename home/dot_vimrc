@@ -1,3 +1,23 @@
+call plug#begin()
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdtree'
+nnoremap <leader>e :NERDTreeFocus<CR>
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+if (has("termguicolors"))
+set termguicolors
+endif
+set background=dark
+let g:gruvbox_contrast_dark = "hard"
+let g:gruvbox_transparent_bg = 1
+let g:gruvbox_improved_warnings = 1
+colorscheme gruvbox
+
+let g:airline#extensions#tabline#enabled = 1
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -7,8 +27,13 @@
 " is present. But we're including it here just in case this config file is
 " loaded some other way (e.g. saved as `foo`, and then Vim started with
 " `vim -u foo`).
+" 
+let mapleader=" "
 set nocompatible
-
+set autoread
+set diffopt+=iwhite
+set ofu=syntaxcomplete#Complete
+set wildignorecase
 " Turn on syntax highlighting.
 syntax on
 set shortmess+=I
@@ -24,8 +49,6 @@ set laststatus=2
 " backspace over anything.
 set backspace=indent,eol,start
 set hidden
-set ignorecase
-set smartcase
 
 set incsearch
 
@@ -44,17 +67,10 @@ set smarttab
 set tabstop=4
 
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
-call plug#begin()
 
-Plug 'scrooloose/nerdtree'
-nnoremap <C-n> :NERDTree<CR>
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'michaeljsmith/vim-indent-object'
+
